@@ -1,3 +1,7 @@
+# v1.5.0
+## Added
+- Adding Detekt + Ktlint
+
 # v1.4.0
 ## Added
 - What's New in the Andes app.
