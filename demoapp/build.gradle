@@ -94,4 +94,8 @@ task copyChangelog(type: Copy) {
     }
 }
 
-tasks.copyChangelog.execute()
+//tasks.withType(type: Assemble) {
+//    dependsOn tasks.copyChangelog
+//}
+
+//tasks.copyChangelog.execute()
