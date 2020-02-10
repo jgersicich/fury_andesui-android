@@ -2,6 +2,10 @@
 ## Added
 - Adding Detekt + Ktlint
 
+## Changed
+- Migrated to Gradle 5.6.4
+- Migrated to AGP 3.4.2
+
 # v1.4.0
 ## Added
 - What's New in the Andes app.
