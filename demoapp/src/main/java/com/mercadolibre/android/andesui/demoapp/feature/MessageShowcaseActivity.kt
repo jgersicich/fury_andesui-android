@@ -94,7 +94,6 @@ class MessageShowcaseActivity : AppCompatActivity() {
 
             val secondaryActionText = layoutMessagesChange.findViewById<EditText>(R.id.secondary_action_text)
 
-
             val changeButton = layoutMessagesChange.findViewById<AndesButton>(R.id.change_button)
             val changeMessage = layoutMessagesChange.findViewById<AndesMessage>(R.id.message)
 
@@ -119,7 +118,6 @@ class MessageShowcaseActivity : AppCompatActivity() {
                     "Loud" -> changeMessage.hierarchy = AndesMessageHierarchy.LOUD
                     "Quiet" -> changeMessage.hierarchy = AndesMessageHierarchy.QUIET
                 }
-
 
                 if (primaryActionText.text.toString() != "") {
                     changeMessage.setupPrimaryAction(primaryActionText.text.toString(), View.OnClickListener {

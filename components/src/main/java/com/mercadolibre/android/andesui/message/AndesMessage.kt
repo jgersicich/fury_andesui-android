@@ -93,7 +93,6 @@ class AndesMessage : FrameLayout {
     private lateinit var primaryAction: AndesButton
     private lateinit var secondaryAction: AndesButton
 
-
     @Suppress("unused")
     private constructor(context: Context) : super(context) {
         throw IllegalStateException("Constructor without parameters in Andes Message is not allowed. You must provide some attributes.")
@@ -108,12 +107,13 @@ class AndesMessage : FrameLayout {
     }
 
     @Suppress("unused")
-    constructor(context: Context,
-                hierarchy: AndesMessageHierarchy = HIERARCHY_DEFAULT,
-                type: AndesMessageType = STATE_DEFAULT,
-                body: String,
-                title: String? = TITLE_DEFAULT,
-                isDismissable: Boolean = IS_DISMISSIBLE_DEFAULT
+    constructor(
+        context: Context,
+        hierarchy: AndesMessageHierarchy = HIERARCHY_DEFAULT,
+        type: AndesMessageType = STATE_DEFAULT,
+        body: String,
+        title: String? = TITLE_DEFAULT,
+        isDismissable: Boolean = IS_DISMISSIBLE_DEFAULT
     ) : super(context) {
         initAttrs(hierarchy, type, body, title, isDismissable)
     }
@@ -129,8 +129,13 @@ class AndesMessage : FrameLayout {
         setupComponents(config)
     }
 
-
-    private fun initAttrs(hierarchy: AndesMessageHierarchy, type: AndesMessageType, body: String, title: String?, isDismissable: Boolean) {
+    private fun initAttrs(
+        hierarchy: AndesMessageHierarchy,
+        type: AndesMessageType,
+        body: String,
+        title: String?,
+        isDismissable: Boolean
+    ) {
         andesMessageAttrs = AndesMessageAttrs(hierarchy, type, body, title, isDismissable)
         val config = AndesMessageConfigurationFactory.create(context, andesMessageAttrs)
         setupComponents(config)
@@ -181,7 +186,7 @@ class AndesMessage : FrameLayout {
      *
      */
     private fun setupViewId() {
-        if (id == NO_ID) { //If this view has no id
+        if (id == NO_ID) { // If this view has no id
             id = View.generateViewId()
         }
     }
@@ -259,17 +264,17 @@ class AndesMessage : FrameLayout {
         } else {
             when {
                 BuildConfig.DEBUG -> throw IllegalStateException("Cannot initialize a secondary action without a primary one")
-                else -> Log.d("AndesMessage","Cannot initialize a secondary action without a primary one")
+                else -> Log.d("AndesMessage", "Cannot initialize a secondary action without a primary one")
             }
         }
     }
 
-    fun hidePrimaryAction(){
+    fun hidePrimaryAction() {
         primaryAction.visibility = View.GONE
         secondaryAction.visibility = View.GONE
     }
 
-    fun hideSecondaryAction(){
+    fun hideSecondaryAction() {
         secondaryAction.visibility = View.GONE
     }
 

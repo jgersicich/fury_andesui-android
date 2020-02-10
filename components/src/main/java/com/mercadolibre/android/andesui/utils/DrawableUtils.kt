@@ -25,7 +25,13 @@ import com.mercadolibre.android.andesui.color.AndesColor
  * @param colors we said we will be tinting the icon and this is the color. Note that the color for state_enabled will be used. If it does not exist, 0 will be used.
  * @return a complete look overhauled [BitmapDrawable].
  */
-internal fun buildScaledColoredBitmapDrawable(image: BitmapDrawable, context: Context, dstWidth: Int, dstHeight: Int, colors: ColorStateList?): BitmapDrawable {
+internal fun buildScaledColoredBitmapDrawable(
+    image: BitmapDrawable,
+    context: Context,
+    dstWidth: Int,
+    dstHeight: Int,
+    colors: ColorStateList?
+): BitmapDrawable {
     val scaledBitmap = Bitmap.createScaledBitmap(
             image.bitmap,
             dstWidth,
@@ -51,7 +57,13 @@ internal fun buildColoredBitmapDrawable(image: BitmapDrawable, context: Context,
             }
 }
 
-internal fun buildColoredCircularShapeWithIconDrawable(image: BitmapDrawable, context: Context, iconColor: AndesColor? = null, shapeColor: Int? = null, diameter: Int): Drawable {
+internal fun buildColoredCircularShapeWithIconDrawable(
+    image: BitmapDrawable,
+    context: Context,
+    iconColor: AndesColor? = null,
+    shapeColor: Int? = null,
+    diameter: Int
+): Drawable {
     val icon = buildColoredBitmapDrawable(image, context, iconColor)
 
     val biggerCircle = ShapeDrawable(OvalShape())

@@ -8,7 +8,6 @@ import io.noties.markwon.Markwon
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
 
-
 class WhatsNewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,5 +38,4 @@ class WhatsNewActivity : AppCompatActivity() {
 
         return byteArrayOutputStream.toString()
     }
-
 }

@@ -5,7 +5,6 @@ import android.content.res.ColorStateList
 import android.content.res.TypedArray
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
-import android.util.AttributeSet
 import com.mercadolibre.android.andesui.R
 import com.mercadolibre.android.andesui.button.AndesButton
 import com.mercadolibre.android.andesui.button.factory.AndesButtonConfigurationFactory.create
@@ -14,7 +13,6 @@ import com.mercadolibre.android.andesui.button.hierarchy.AndesButtonHierarchyInt
 import com.mercadolibre.android.andesui.button.hierarchy.AndesButtonIcon
 import com.mercadolibre.android.andesui.button.size.AndesButtonSize
 import com.mercadolibre.android.andesui.button.size.AndesButtonSizeInterface
-import com.mercadolibre.android.andesui.message.factory.AndesMessageAttrs
 
 /**
  * Useful class that holds the data that the [AndesButton] will use to draw the button accordingly.
@@ -30,16 +28,16 @@ import com.mercadolibre.android.andesui.message.factory.AndesMessageAttrs
  * @property lateralPadding holds the lateral padding of the button.
  */
 internal data class AndesButtonConfiguration(
-        val background: Drawable,
-        val text: String? = null,
-        val textColor: ColorStateList,
-        val textSize: Float,
-        val margin: AndesButtonMargin,
-        val height: Float,
-        val typeface: Typeface,
-        val iconConfig: IconConfig? = null,
-        val enabled: Boolean = true,
-        val lateralPadding: Int
+    val background: Drawable,
+    val text: String? = null,
+    val textColor: ColorStateList,
+    val textSize: Float,
+    val margin: AndesButtonMargin,
+    val height: Float,
+    val typeface: Typeface,
+    val iconConfig: IconConfig? = null,
+    val enabled: Boolean = true,
+    val lateralPadding: Int
 ) {
     /**
      * Constant representing the max of lines a button can have
@@ -107,7 +105,12 @@ internal object AndesButtonConfigurationFactory {
      * @return an [AndesButtonConfiguration] that contains all the data that [AndesButton] needs to draw itself properly.
      */
     @Override
-    fun create(context: Context, andesButtonSize: AndesButtonSize, andesButtonHierarchy: AndesButtonHierarchy, andesButtonIcon: AndesButtonIcon?): AndesButtonConfiguration {
+    fun create(
+        context: Context,
+        andesButtonSize: AndesButtonSize,
+        andesButtonHierarchy: AndesButtonHierarchy,
+        andesButtonIcon: AndesButtonIcon?
+    ): AndesButtonConfiguration {
         val size = andesButtonSize.size
         val hierarchy = andesButtonHierarchy.hierarchy
 
@@ -130,7 +133,11 @@ internal object AndesButtonConfigurationFactory {
      * @param size determined size of the button: Needed because the size depends on this.
      * @param context needed for accessing some resources.
      */
-    private fun resolveBackground(hierarchy: AndesButtonHierarchyInterface, size: AndesButtonSizeInterface, context: Context) = hierarchy.background(context, size.cornerRadius(context))
+    private fun resolveBackground(
+        hierarchy: AndesButtonHierarchyInterface,
+        size: AndesButtonSizeInterface,
+        context: Context
+    ) = hierarchy.background(context, size.cornerRadius(context))
 
     /**
      * Determines the text color from certain parameters that receives.
@@ -156,7 +163,12 @@ internal object AndesButtonConfigurationFactory {
      * @param rightIcon probable icon of the button. Needed because the margins are different if the button has icon or not.
      * @param context needed for accessing dimen resources.
      */
-    private fun resolveMargin(size: AndesButtonSizeInterface, leftIcon: Drawable?, rightIcon: Drawable?, context: Context) = AndesButtonMargin(size, leftIcon, rightIcon, context)
+    private fun resolveMargin(
+        size: AndesButtonSizeInterface,
+        leftIcon: Drawable?,
+        rightIcon: Drawable?,
+        context: Context
+    ) = AndesButtonMargin(size, leftIcon, rightIcon, context)
 
     /**
      * Determines the height of the button from certain parameters that receives.
@@ -183,7 +195,13 @@ internal object AndesButtonConfigurationFactory {
      * @param rightIcon determined icon of the button. Needed because this is the icon to be resized and tinted to be used properly inside the button.
      * @param context needed for accessing some resources.
      */
-    private fun resolveIconConfig(size: AndesButtonSizeInterface, hierarchy: AndesButtonHierarchyInterface, leftIcon: Drawable?, rightIcon: Drawable?, context: Context) = size.iconConfig(hierarchy, leftIcon, rightIcon, context)
+    private fun resolveIconConfig(
+        size: AndesButtonSizeInterface,
+        hierarchy: AndesButtonHierarchyInterface,
+        leftIcon: Drawable?,
+        rightIcon: Drawable?,
+        context: Context
+    ) = size.iconConfig(hierarchy, leftIcon, rightIcon, context)
 
     /**
      * Determines if the button should be enabled or not.
@@ -191,7 +209,6 @@ internal object AndesButtonConfigurationFactory {
      * @param typedArray needed for accessing boolean value.
      */
     private fun resolveEnabled(typedArray: TypedArray) = typedArray.getBoolean(R.styleable.AndesButton_andesButtonEnabled, true)
-
 
     /**
      * Determines the padding of the button.

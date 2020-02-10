@@ -20,7 +20,7 @@ enum class AndesButtonSize {
     private fun getAndesButtonSize(): AndesButtonSizeInterface {
         return when (this) {
             SMALL -> AndesSmallButtonSize()
-            MEDIUM ->AndesMediumButtonSize()
+            MEDIUM -> AndesMediumButtonSize()
             LARGE -> AndesLargeButtonSize()
         }
     }

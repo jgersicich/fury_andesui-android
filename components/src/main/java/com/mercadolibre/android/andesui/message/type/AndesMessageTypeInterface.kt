@@ -10,7 +10,6 @@ import com.mercadolibre.android.andesui.color.toAndesColor
 import com.mercadolibre.android.andesui.message.hierarchy.AndesMessageHierarchyInterface
 import com.mercadolibre.android.andesui.utils.buildColoredCircularShapeWithIconDrawable
 
-
 internal sealed class AndesMessageTypeInterface {
 
     abstract fun primaryColor(): AndesColor

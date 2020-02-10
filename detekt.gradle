@@ -18,6 +18,7 @@ dependencies {
 detekt {
     input = rootProject.files(KOTLIN_FILES_REGEX)
     config = rootProject.files(DETEKT_CUSTOM_CONFIG_FILE_PATH + DETEKT_CONFIG_FILE_NAME)
+    autoCorrect = true
 
     // Enabling XML and HTML reports
     reports {

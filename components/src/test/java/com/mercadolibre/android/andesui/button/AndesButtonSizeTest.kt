@@ -75,7 +75,6 @@ class AndesLargeButtonSizeTest {
     fun `Large button right icon`() {
         assertEquals(andesLargeButtonSize.iconConfig(hierarchy, null, icon, context), IconConfig(null, icon))
     }
-
 }
 
 @RunWith(RobolectricTestRunner::class)
@@ -133,9 +132,7 @@ class AndesMediumButtonSizeTest {
     fun `Medium button right icon`() {
         assertNull(andesMediumButtonSize.iconConfig(hierarchy, null, icon, context))
     }
-
 }
-
 
 @RunWith(RobolectricTestRunner::class)
 @Config(constants = BuildConfig::class, sdk = [Build.VERSION_CODES.LOLLIPOP])
@@ -192,5 +189,4 @@ class AndesSmallButtonSizeTest {
     fun `Small button right icon`() {
         assertNull(andesSmallButtonSize.iconConfig(hierarchy, null, icon, context))
     }
-
 }
