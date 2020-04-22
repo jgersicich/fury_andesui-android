@@ -2,14 +2,14 @@ package com.mercadolibre.android.andesui.message
 
 import android.content.Context
 import android.support.constraint.ConstraintLayout
+import android.support.v7.widget.CardView
 import android.util.AttributeSet
 import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.FrameLayout
-import android.widget.ImageView
 import android.widget.TextView
+import com.facebook.drawee.view.SimpleDraweeView
 import com.mercadolibre.android.andesui.BuildConfig
 import com.mercadolibre.android.andesui.R
 import com.mercadolibre.android.andesui.button.AndesButton
@@ -20,7 +20,7 @@ import com.mercadolibre.android.andesui.message.factory.AndesMessageConfiguratio
 import com.mercadolibre.android.andesui.message.hierarchy.AndesMessageHierarchy
 import com.mercadolibre.android.andesui.message.type.AndesMessageType
 
-class AndesMessage : FrameLayout {
+class AndesMessage : CardView {
 
     /**
      * Getter and setter for [hierarchy].
@@ -55,7 +55,7 @@ class AndesMessage : FrameLayout {
      * Getter and setter for [title].
      */
     var title: String?
-        get() = andesMessageAttrs.body
+        get() = andesMessageAttrs.title
         set(value) {
             andesMessageAttrs = andesMessageAttrs.copy(title = value)
             setupTitleComponent(createConfig())
@@ -86,12 +86,13 @@ class AndesMessage : FrameLayout {
     private lateinit var messageContainer: ConstraintLayout
     private lateinit var titleComponent: TextView
     private lateinit var bodyComponent: TextView
-    private lateinit var iconComponent: ImageView
-    private lateinit var dismissableComponent: ImageView
+    private lateinit var iconComponent: SimpleDraweeView
+    private lateinit var dismissableComponent: SimpleDraweeView
     private lateinit var pipeComponent: View
     private lateinit var andesMessageAttrs: AndesMessageAttrs
     private lateinit var primaryAction: AndesButton
     private lateinit var secondaryAction: AndesButton
+
 
     @Suppress("unused")
     private constructor(context: Context) : super(context) {
@@ -107,13 +108,12 @@ class AndesMessage : FrameLayout {
     }
 
     @Suppress("unused")
-    constructor(
-        context: Context,
-        hierarchy: AndesMessageHierarchy = HIERARCHY_DEFAULT,
-        type: AndesMessageType = STATE_DEFAULT,
-        body: String,
-        title: String? = TITLE_DEFAULT,
-        isDismissable: Boolean = IS_DISMISSIBLE_DEFAULT
+    constructor(context: Context,
+                hierarchy: AndesMessageHierarchy = HIERARCHY_DEFAULT,
+                type: AndesMessageType = STATE_DEFAULT,
+                body: String,
+                title: String? = TITLE_DEFAULT,
+                isDismissable: Boolean = IS_DISMISSIBLE_DEFAULT
     ) : super(context) {
         initAttrs(hierarchy, type, body, title, isDismissable)
     }
@@ -129,24 +129,22 @@ class AndesMessage : FrameLayout {
         setupComponents(config)
     }
 
-    private fun initAttrs(
-        hierarchy: AndesMessageHierarchy,
-        type: AndesMessageType,
-        body: String,
-        title: String?,
-        isDismissable: Boolean
-    ) {
+    private fun initAttrs(hierarchy: AndesMessageHierarchy, type: AndesMessageType, body: String, title: String?, isDismissable: Boolean) {
         andesMessageAttrs = AndesMessageAttrs(hierarchy, type, body, title, isDismissable)
         val config = AndesMessageConfigurationFactory.create(context, andesMessageAttrs)
         setupComponents(config)
     }
 
     /**
-     * Responsible for setting up all properties of each component that is part of this button.
+     * Responsible for setting up all properties of each component that is part of this message.
      * Is like a choreographer ;)
      *
      */
     private fun setupComponents(config: AndesMessageConfiguration) {
+        radius = context.resources.getDimension(R.dimen.andes_message_corner_radius)
+        cardElevation = 0f
+        preventCornerOverlap = true
+
         initComponents()
         setupViewId()
 
@@ -169,16 +167,16 @@ class AndesMessage : FrameLayout {
      *
      */
     private fun initComponents() {
-        val container = LayoutInflater.from(context).inflate(R.layout.andesui_layout_message, this, true)
+        val container = LayoutInflater.from(context).inflate(R.layout.andes_layout_message, this, true)
 
-        messageContainer = container.findViewById(R.id.andesui_message_container)
-        titleComponent = container.findViewById(R.id.andesui_title)
-        bodyComponent = container.findViewById(R.id.andesui_body)
-        iconComponent = container.findViewById(R.id.andesui_icon)
-        dismissableComponent = container.findViewById(R.id.andesui_dismissable)
-        pipeComponent = container.findViewById(R.id.andesui_pipe)
-        primaryAction = container.findViewById(R.id.andesui_primary_action)
-        secondaryAction = container.findViewById(R.id.andesui_secondary_action)
+        messageContainer = container.findViewById(R.id.andes_message_container)
+        titleComponent = container.findViewById(R.id.andes_title)
+        bodyComponent = container.findViewById(R.id.andes_body)
+        iconComponent = container.findViewById(R.id.andes_icon)
+        dismissableComponent = container.findViewById(R.id.andes_dismissable)
+        pipeComponent = container.findViewById(R.id.andes_pipe)
+        primaryAction = container.findViewById(R.id.andes_primary_action)
+        secondaryAction = container.findViewById(R.id.andes_secondary_action)
     }
 
     /**
@@ -186,7 +184,7 @@ class AndesMessage : FrameLayout {
      *
      */
     private fun setupViewId() {
-        if (id == NO_ID) { // If this view has no id
+        if (id == NO_ID) { //If this view has no id
             id = View.generateViewId()
         }
     }
@@ -220,7 +218,7 @@ class AndesMessage : FrameLayout {
     }
 
     private fun setupBackground(config: AndesMessageConfiguration) {
-        messageContainer.setBackgroundColor(config.backgroundColor.colorInt(context))
+        setCardBackgroundColor(config.backgroundColor.colorInt(context))
     }
 
     private fun setupPipe(config: AndesMessageConfiguration) {
@@ -266,6 +264,13 @@ class AndesMessage : FrameLayout {
                 BuildConfig.DEBUG -> throw IllegalStateException("Cannot initialize a secondary action without a primary one")
                 else -> Log.d("AndesMessage", "Cannot initialize a secondary action without a primary one")
             }
+        }
+    }
+
+    fun setupDismissableCallback(onClickListener: OnClickListener) {
+        dismissableComponent.setOnClickListener{
+            visibility = View.GONE
+            onClickListener.onClick(it)
         }
     }
 

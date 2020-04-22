@@ -1,10 +1,41 @@
-# v1.5.0
-## Added
-- Adding Detekt + Ktlint
-
+# v2.1.0
+## Added
+- Initial Textfield component
+- - Adding Detekt + Ktlint
 ## Changed
+- Open icon provider.
+- Open drawable utils for painting and scaling icons.
 - Migrated to Gradle 5.6.4
 - Migrated to AGP 3.4.2
+
+# v2.0.1
+## Removed
+- Local font tests.
+
+# v2.0.0
+## Fixed
+- Color palette and styles change.
+
+## Changed
+- Icons now are called by string path.
+- The prefix was changed to "andes" instead of "andesui_"
+
+## Added
+- Offline needed icons.
+
+## Removed
+- Old unused icons.
+
+# v1.4.2
+## Added
+- Test for Andes Message.
+
+## Fixed
+- Andes Message title property return body text.
+
+# v1.4.1
+## Fixed
+- Background of Andes Message now displays properly on same background app color.
 
 # v1.4.0
 ## Added

@@ -1,24 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.mercadolibre.android.andesui.demoapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
-        android:name="com.mercadolibre.android.andesui.demoapp.MainApplication"
+        android:name=".MainApplication"
+        android:allowBackup="false"
         android:icon="@mipmap/andesui_demoapp_ic_launcher"
         android:label="@string/andesui_demoapp_app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light"
-        tools:ignore="GoogleAppIndexingWarning"
-        android:allowBackup="false">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name="com.mercadolibre.android.andesui.demoapp.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".feature.BadgeShowcaseActivity" android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-        <activity android:name="com.mercadolibre.android.andesui.demoapp.feature.ButtonShowcaseActivity">
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="andes"
+                    android:path="/badge"
+                    android:scheme="meli" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".feature.ButtonShowcaseActivity" android:parentActivityName=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -31,8 +48,7 @@
                     android:scheme="meli" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.mercadolibre.android.andesui.demoapp.feature.MessageShowcaseActivity">
+        <activity android:name=".feature.MessageShowcaseActivity" android:parentActivityName=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -45,8 +61,20 @@
                     android:scheme="meli" />
             </intent-filter>
         </activity>
+        <activity android:name=".feature.TextfieldShowcaseActivity" android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-        <activity android:name="com.mercadolibre.android.andesui.demoapp.feature.WhatsNewActivity">
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="andes"
+                    android:path="/textfield"
+                    android:scheme="meli" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".feature.WhatsNewActivity" android:parentActivityName=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 

@@ -9,8 +9,8 @@ import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
-import android.widget.ImageView
 import android.widget.TextView
+import com.facebook.drawee.view.SimpleDraweeView
 import com.mercadolibre.android.andesui.R
 import com.mercadolibre.android.andesui.button.factory.AndesButtonAttrs
 import com.mercadolibre.android.andesui.button.factory.AndesButtonAttrsParser
@@ -42,7 +42,7 @@ import com.mercadolibre.android.andesui.button.size.AndesButtonSize
  *     android:layout_height="wrap_content"
  *     android:layout_marginBottom="16dp"
  *     android:text="@string/large_button_left_icon"
- *     app:andesButtonLeftIconCustom="@drawable/andesui_icon_clip"
+ *     app:andesButtonLeftIconPath="andes_icon_clip"
  *     app:andesButtonSize="large"
  *     app:andesButtonHierarchy="loud" /&gt;</pre>
  *
@@ -60,8 +60,8 @@ import com.mercadolibre.android.andesui.button.size.AndesButtonSize
 class AndesButton : ConstraintLayout {
 
     private lateinit var andesButtonAttrs: AndesButtonAttrs
-    internal lateinit var leftIconComponent: ImageView
-    internal lateinit var rightIconComponent: ImageView
+    internal lateinit var leftIconComponent: SimpleDraweeView
+    internal lateinit var rightIconComponent: SimpleDraweeView
     internal lateinit var textComponent: TextView
 
     /**
@@ -242,9 +242,9 @@ class AndesButton : ConstraintLayout {
     private fun initComponents() {
         textComponent = TextView(context)
         textComponent.id = View.generateViewId()
-        leftIconComponent = ImageView(context)
+        leftIconComponent = SimpleDraweeView(context)
         leftIconComponent.id = View.generateViewId()
-        rightIconComponent = ImageView(context)
+        rightIconComponent = SimpleDraweeView(context)
         rightIconComponent.id = View.generateViewId()
     }
 
@@ -356,7 +356,7 @@ class AndesButton : ConstraintLayout {
     }
 
     internal fun changeBackgroundColor(backgroundColorConfig: BackgroundColorConfig) {
-        background = getConfiguredBackground(context, context.resources.getDimension(R.dimen.andesui_button_border_radius_medium), backgroundColorConfig)
+        background = getConfiguredBackground(context, context.resources.getDimension(R.dimen.andes_button_border_radius_medium), backgroundColorConfig)
     }
 
     /**

@@ -2,7 +2,6 @@ package com.mercadolibre.android.andesui.demoapp.feature
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
 import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
@@ -25,6 +24,10 @@ class ButtonShowcaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.andesui_showcase_main)
 
+        setSupportActionBar(findViewById(R.id.andesui_nav_bar))
+        supportActionBar?.title = resources.getString(R.string.andesui_demoapp_screen_button)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         val viewPager = findViewById<ViewPager>(R.id.andesui_viewpager)
         viewPager.adapter = AndesShowcasePagerAdapter(this)
         val indicator = findViewById<PageIndicator>(R.id.page_indicator)
@@ -41,10 +44,10 @@ class ButtonShowcaseActivity : AppCompatActivity() {
         andesButtonSmall.text = getString(R.string.loud_small_button_programmatic)
         andesButtonSmall.isEnabled = false
 
-        val andesButtonMedium = AndesButton(this, AndesButtonSize.MEDIUM, AndesButtonHierarchy.LOUD, AndesButtonIcon(ContextCompat.getDrawable(applicationContext, R.drawable.andesui_icon), AndesButtonIconOrientation.LEFT))
+        val andesButtonMedium = AndesButton(this, AndesButtonSize.MEDIUM, AndesButtonHierarchy.LOUD, AndesButtonIcon("andesui_icon", AndesButtonIconOrientation.LEFT))
         andesButtonMedium.text = getString(R.string.loud_medium_button_programmatic)
 
-        val andesButtonLarge = AndesButton(this, AndesButtonSize.LARGE, AndesButtonHierarchy.QUIET, AndesButtonIcon(ContextCompat.getDrawable(applicationContext, R.drawable.andesui_icon), AndesButtonIconOrientation.LEFT))
+        val andesButtonLarge = AndesButton(this, AndesButtonSize.LARGE, AndesButtonHierarchy.QUIET, AndesButtonIcon("andesui_icon", AndesButtonIconOrientation.LEFT))
         andesButtonLarge.text = getString(R.string.loud_large_button_programmatic)
         andesButtonLarge.hierarchy = AndesButtonHierarchy.LOUD
         andesButtonLarge.setOnClickListener {
@@ -77,7 +80,7 @@ class ButtonShowcaseActivity : AppCompatActivity() {
         val andesButtonMedium = AndesButton(this, AndesButtonSize.MEDIUM, AndesButtonHierarchy.QUIET, null)
         andesButtonMedium.text = getString(R.string.quiet_medium_button_programmatic)
 
-        val andesButtonLarge = AndesButton(this, AndesButtonSize.LARGE, AndesButtonHierarchy.QUIET, AndesButtonIcon(ContextCompat.getDrawable(applicationContext, R.drawable.andesui_icon), AndesButtonIconOrientation.RIGHT))
+        val andesButtonLarge = AndesButton(this, AndesButtonSize.LARGE, AndesButtonHierarchy.QUIET, AndesButtonIcon("andesui_icon", AndesButtonIconOrientation.RIGHT))
         andesButtonLarge.text = getString(R.string.quiet_large_button_programmatic)
         andesButtonLarge.setOnClickListener {
             andesButtonLarge.hierarchy = AndesButtonHierarchy.LOUD
@@ -112,7 +115,7 @@ class ButtonShowcaseActivity : AppCompatActivity() {
         val andesButtonLarge = AndesButton(this, AndesButtonSize.LARGE, AndesButtonHierarchy.TRANSPARENT)
         andesButtonLarge.text = getString(R.string.transparent_large_button_programmatic)
 
-        val andesButtonLargeInt = AndesButton(this, AndesButtonSize.LARGE, AndesButtonHierarchy.TRANSPARENT, AndesButtonIcon(ContextCompat.getDrawable(applicationContext, R.drawable.andesui_icon), AndesButtonIconOrientation.LEFT))
+        val andesButtonLargeInt = AndesButton(this, AndesButtonSize.LARGE, AndesButtonHierarchy.TRANSPARENT, AndesButtonIcon("andesui_icon", AndesButtonIconOrientation.LEFT))
         andesButtonLargeInt.text = getString(R.string.transparent_large_button_programmatic_int)
 
         val params = LinearLayout.LayoutParams(

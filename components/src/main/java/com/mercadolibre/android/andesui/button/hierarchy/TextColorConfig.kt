@@ -14,8 +14,8 @@ import com.mercadolibre.android.andesui.color.toAndesColor
  * @property disabledColor
  */
 internal data class TextColorConfig(
-    val enabledColor: AndesColor,
-    val disabledColor: AndesColor
+        val enabledColor: AndesColor,
+        val disabledColor: AndesColor
 )
 
 /**
@@ -25,12 +25,12 @@ internal data class TextColorConfig(
  * @param textColorConfig config colors. This changes based on the button style.
  */
 internal fun getConfiguredTextColor(context: Context, textColorConfig: TextColorConfig) = ColorStateList(arrayOf(
-        intArrayOf(-android.R.attr.state_enabled), // Disabled
-        intArrayOf(android.R.attr.state_enabled) // Enabled
+        intArrayOf(-android.R.attr.state_enabled),  // Disabled
+        intArrayOf(android.R.attr.state_enabled)    // Enabled
 ),
         intArrayOf(
-                textColorConfig.disabledColor.colorInt(context), // The color for the Disabled type
-                textColorConfig.enabledColor.colorInt(context) // The color for the Enabled type
+                textColorConfig.disabledColor.colorInt(context),     // The color for the Disabled type
+                textColorConfig.enabledColor.colorInt(context)        // The color for the Enabled type
         )
 )
 
@@ -39,18 +39,18 @@ internal fun getConfiguredTextColor(context: Context, textColorConfig: TextColor
  *
  */
 internal fun createTextColorConfigLoud() =
-        TextColorConfig(R.color.andesui_button_loud_text.toAndesColor(), R.color.andesui_button_loud_text_disabled.toAndesColor())
+        TextColorConfig(R.color.andes_white.toAndesColor(), R.color.andes_text_color_disabled.toAndesColor())
 
 /**
  * Returns the proper [TextColorConfig] for the Quiet Hierarchy button.
  *
  */
 internal fun createTextColorConfigQuiet() =
-        TextColorConfig(R.color.andesui_button_quiet_text.toAndesColor(), R.color.andesui_button_quiet_text_disabled.toAndesColor())
+        TextColorConfig(R.color.andes_accent_color_500.toAndesColor(), R.color.andes_text_color_disabled.toAndesColor())
 
 /**
  * Returns the proper [TextColorConfig] for the Transparent Hierarchy button.
  *
  */
 internal fun createTextColorConfigTransparent() =
-        TextColorConfig(R.color.andesui_button_transparent_text.toAndesColor(), R.color.andesui_button_transparent_text_disabled.toAndesColor())
+        TextColorConfig(R.color.andes_accent_color_500.toAndesColor(), R.color.andes_text_color_disabled.toAndesColor())

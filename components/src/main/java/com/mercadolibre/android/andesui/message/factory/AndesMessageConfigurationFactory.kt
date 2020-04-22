@@ -38,7 +38,7 @@ internal object AndesMessageConfigurationFactory {
     fun create(context: Context, andesMessageAttrs: AndesMessageAttrs): AndesMessageConfiguration {
         return with(andesMessageAttrs) {
             AndesMessageConfiguration(
-                    iconBackgroundColor = resolveIconBackgroundColor(andesMessageType.type),
+                    iconBackgroundColor = resolveIconBackgroundColor(andesMessageType.type, andesMessageHierarchy.hierarchy),
                     backgroundColor = resolveBackgroundColor(andesMessageHierarchy.hierarchy, andesMessageType.type),
                     pipeColor = resolvePipeColor(andesMessageType.type),
                     textColor = resolveTextColor(andesMessageHierarchy.hierarchy),
@@ -63,13 +63,13 @@ internal object AndesMessageConfigurationFactory {
         }
     }
 
-    private fun resolveIconBackgroundColor(type: AndesMessageTypeInterface) = type.iconBackgroundColor()
+    private fun resolveIconBackgroundColor(type: AndesMessageTypeInterface, hierarchy: AndesMessageHierarchyInterface) = hierarchy.iconBackgroundColor(type)
     private fun resolveBackgroundColor(hierarchy: AndesMessageHierarchyInterface, type: AndesMessageTypeInterface) = hierarchy.backgroundColor(type)
     private fun resolvePipeColor(type: AndesMessageTypeInterface) = type.pipeColor()
     private fun resolveTextColor(hierarchy: AndesMessageHierarchyInterface) = hierarchy.textColor()
-    private fun resolveTitleSize(context: Context) = context.resources.getDimension(R.dimen.andesui_message_title)
-    private fun resolveBodySize(context: Context) = context.resources.getDimension(R.dimen.andesui_message_body)
-    private fun resolveLineHeight(context: Context) = context.resources.getDimension(R.dimen.andesui_message_line_height).toInt()
+    private fun resolveTitleSize(context: Context) = context.resources.getDimension(R.dimen.andes_message_title)
+    private fun resolveBodySize(context: Context) = context.resources.getDimension(R.dimen.andes_message_body)
+    private fun resolveLineHeight(context: Context) = context.resources.getDimension(R.dimen.andes_message_line_height).toInt()
     private fun resolveTitleTypeface(hierarchy: AndesMessageHierarchyInterface, context: Context) = hierarchy.titleTypeface(context)
     private fun resolveBodyTypeface(hierarchy: AndesMessageHierarchyInterface, context: Context) = hierarchy.bodyTypeface(context)
     private fun resolveIcon(
