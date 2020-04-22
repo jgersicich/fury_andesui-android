@@ -19,7 +19,7 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
 
-const val ANDES_ICON="andes_navegacion_ajustes"
+const val ANDES_ICON = "andes_navegacion_ajustes"
 
 @RunWith(RobolectricTestRunner::class)
 @Config(constants = BuildConfig::class, sdk = [Build.VERSION_CODES.LOLLIPOP])

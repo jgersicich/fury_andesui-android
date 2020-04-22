@@ -16,7 +16,7 @@ enum class AndesButtonSize {
     LARGE;
 
     companion object {
-        fun fromString(value: String) : AndesButtonSize = valueOf(value.toUpperCase())
+        fun fromString(value: String): AndesButtonSize = valueOf(value.toUpperCase())
     }
 
     internal val size get() = getAndesButtonSize()

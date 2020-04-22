@@ -25,12 +25,12 @@ internal data class TextColorConfig(
  * @param textColorConfig config colors. This changes based on the button style.
  */
 internal fun getConfiguredTextColor(context: Context, textColorConfig: TextColorConfig) = ColorStateList(arrayOf(
-        intArrayOf(-android.R.attr.state_enabled),  // Disabled
-        intArrayOf(android.R.attr.state_enabled)    // Enabled
+        intArrayOf(-android.R.attr.state_enabled), // Disabled
+        intArrayOf(android.R.attr.state_enabled) // Enabled
 ),
         intArrayOf(
-                textColorConfig.disabledColor.colorInt(context),     // The color for the Disabled type
-                textColorConfig.enabledColor.colorInt(context)        // The color for the Enabled type
+                textColorConfig.disabledColor.colorInt(context), // The color for the Disabled type
+                textColorConfig.enabledColor.colorInt(context) // The color for the Enabled type
         )
 )
 
