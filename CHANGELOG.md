@@ -1,6 +1,7 @@
 # v2.1.0
 ## Added
 - Initial Textfield component
+- Added more Andes icons needed.
 ## Changed
 - Open icon provider.
 - Open drawable utils for painting and scaling icons.
