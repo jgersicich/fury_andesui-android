@@ -108,12 +108,12 @@ class AndesMessage : CardView {
 
     @Suppress("unused")
     constructor(
-            context: Context,
-            hierarchy: AndesMessageHierarchy = HIERARCHY_DEFAULT,
-            type: AndesMessageType = STATE_DEFAULT,
-            body: String,
-            title: String? = TITLE_DEFAULT,
-            isDismissable: Boolean = IS_DISMISSIBLE_DEFAULT
+        context: Context,
+        hierarchy: AndesMessageHierarchy = HIERARCHY_DEFAULT,
+        type: AndesMessageType = STATE_DEFAULT,
+        body: String,
+        title: String? = TITLE_DEFAULT,
+        isDismissable: Boolean = IS_DISMISSIBLE_DEFAULT
     ) : super(context) {
         initAttrs(hierarchy, type, body, title, isDismissable)
     }
@@ -130,11 +130,11 @@ class AndesMessage : CardView {
     }
 
     private fun initAttrs(
-            hierarchy: AndesMessageHierarchy,
-            type: AndesMessageType,
-            body: String,
-            title: String?,
-            isDismissable: Boolean
+        hierarchy: AndesMessageHierarchy,
+        type: AndesMessageType,
+        body: String,
+        title: String?,
+        isDismissable: Boolean
     ) {
         andesMessageAttrs = AndesMessageAttrs(hierarchy, type, body, title, isDismissable)
         val config = AndesMessageConfigurationFactory.create(context, andesMessageAttrs)

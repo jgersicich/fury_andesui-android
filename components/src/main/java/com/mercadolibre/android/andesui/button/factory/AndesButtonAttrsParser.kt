@@ -10,12 +10,12 @@ import com.mercadolibre.android.andesui.button.size.AndesButtonSize
  * The data class that contains the public components of the button.
  */
 internal data class AndesButtonAttrs(
-        val andesButtonHierarchy: AndesButtonHierarchy,
-        val andesButtonSize: AndesButtonSize,
-        val andesButtonLeftIconPath: String?,
-        val andesButtonRightIconPath: String?,
-        val andesButtonText: String?,
-        val andesButtonEnabled: Boolean = true
+    val andesButtonHierarchy: AndesButtonHierarchy,
+    val andesButtonSize: AndesButtonSize,
+    val andesButtonLeftIconPath: String?,
+    val andesButtonRightIconPath: String?,
+    val andesButtonText: String?,
+    val andesButtonEnabled: Boolean = true
 )
 
 /**

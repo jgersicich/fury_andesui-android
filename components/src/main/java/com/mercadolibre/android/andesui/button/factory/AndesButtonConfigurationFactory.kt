@@ -28,16 +28,16 @@ import com.mercadolibre.android.andesui.button.size.AndesButtonSizeInterface
  * @property lateralPadding holds the lateral padding of the button.
  */
 internal data class AndesButtonConfiguration(
-        val background: Drawable,
-        val text: String? = null,
-        val textColor: ColorStateList,
-        val textSize: Float,
-        val margin: AndesButtonMargin,
-        val height: Float,
-        val typeface: Typeface,
-        val iconConfig: IconConfig? = null,
-        val enabled: Boolean = true,
-        val lateralPadding: Int
+    val background: Drawable,
+    val text: String? = null,
+    val textColor: ColorStateList,
+    val textSize: Float,
+    val margin: AndesButtonMargin,
+    val height: Float,
+    val typeface: Typeface,
+    val iconConfig: IconConfig? = null,
+    val enabled: Boolean = true,
+    val lateralPadding: Int
 ) {
     /**
      * Constant representing the max of lines a button can have
@@ -106,10 +106,10 @@ internal object AndesButtonConfigurationFactory {
      */
     @Override
     fun create(
-            context: Context,
-            andesButtonSize: AndesButtonSize,
-            andesButtonHierarchy: AndesButtonHierarchy,
-            andesButtonIcon: AndesButtonIcon?
+        context: Context,
+        andesButtonSize: AndesButtonSize,
+        andesButtonHierarchy: AndesButtonHierarchy,
+        andesButtonIcon: AndesButtonIcon?
     ): AndesButtonConfiguration {
         val size = andesButtonSize.size
         val hierarchy = andesButtonHierarchy.hierarchy
@@ -134,9 +134,9 @@ internal object AndesButtonConfigurationFactory {
      * @param context needed for accessing some resources.
      */
     private fun resolveBackground(
-            hierarchy: AndesButtonHierarchyInterface,
-            size: AndesButtonSizeInterface,
-            context: Context
+        hierarchy: AndesButtonHierarchyInterface,
+        size: AndesButtonSizeInterface,
+        context: Context
     ) = hierarchy.background(context, size.cornerRadius(context))
 
     /**
@@ -164,10 +164,10 @@ internal object AndesButtonConfigurationFactory {
      * @param context needed for accessing dimen resources.
      */
     private fun resolveMargin(
-            size: AndesButtonSizeInterface,
-            leftIconPath: String?,
-            rightIconPath: String?,
-            context: Context
+        size: AndesButtonSizeInterface,
+        leftIconPath: String?,
+        rightIconPath: String?,
+        context: Context
     ) = AndesButtonMargin(size, leftIconPath, rightIconPath, context)
 
     /**
@@ -196,11 +196,11 @@ internal object AndesButtonConfigurationFactory {
      * @param context needed for accessing some resources.
      */
     private fun resolveIconConfig(
-            size: AndesButtonSizeInterface,
-            hierarchy: AndesButtonHierarchyInterface,
-            leftIconPath: String?,
-            rightIconPath: String?,
-            context: Context
+        size: AndesButtonSizeInterface,
+        hierarchy: AndesButtonHierarchyInterface,
+        leftIconPath: String?,
+        rightIconPath: String?,
+        context: Context
     ) = size.iconConfig(hierarchy, leftIconPath, rightIconPath, context)
 
     /**

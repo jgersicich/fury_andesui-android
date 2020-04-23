@@ -98,13 +98,13 @@ class AndesBadge : CardView {
 
     @Suppress("unused")
     constructor(
-            context: Context,
-            modifier: AndesBadgeModifier = MODIFIER_DEFAULT,
-            hierarchy: AndesBadgeHierarchy = HIERARCHY_DEFAULT,
-            type: AndesBadgeType = STATE_DEFAULT,
-            border: AndesBadgeBorder = BORDER_DEFAULT,
-            size: AndesBadgeSize = SIZE_DEFAULT,
-            text: String? = TEXT_DEFAULT
+        context: Context,
+        modifier: AndesBadgeModifier = MODIFIER_DEFAULT,
+        hierarchy: AndesBadgeHierarchy = HIERARCHY_DEFAULT,
+        type: AndesBadgeType = STATE_DEFAULT,
+        border: AndesBadgeBorder = BORDER_DEFAULT,
+        size: AndesBadgeSize = SIZE_DEFAULT,
+        text: String? = TEXT_DEFAULT
     ) : super(context) {
         initAttrs(modifier, hierarchy, type, border, size, text)
     }
@@ -121,12 +121,12 @@ class AndesBadge : CardView {
     }
 
     private fun initAttrs(
-            modifier: AndesBadgeModifier,
-            hierarchy: AndesBadgeHierarchy,
-            type: AndesBadgeType,
-            border: AndesBadgeBorder,
-            size: AndesBadgeSize,
-            title: String?
+        modifier: AndesBadgeModifier,
+        hierarchy: AndesBadgeHierarchy,
+        type: AndesBadgeType,
+        border: AndesBadgeBorder,
+        size: AndesBadgeSize,
+        title: String?
     ) {
         andesBadgeAttrs = AndesBadgeAttrs(modifier, hierarchy, type, border, size, title)
         val config = AndesBadgeConfigurationFactory.create(context, andesBadgeAttrs)

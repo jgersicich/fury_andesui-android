@@ -127,10 +127,10 @@ internal class AndesLargeButtonSize : AndesButtonSizeInterface {
     override fun lateralPadding(context: Context) = context.resources.getDimension(R.dimen.andes_button_lateral_padding_large).toInt()
     override fun cornerRadius(context: Context) = context.resources.getDimension(R.dimen.andes_button_border_radius_large)
     override fun iconConfig(
-            hierarchy: AndesButtonHierarchyInterface,
-            leftIcon: String?,
-            rightIcon: String?,
-            context: Context
+        hierarchy: AndesButtonHierarchyInterface,
+        leftIcon: String?,
+        rightIcon: String?,
+        context: Context
     ): IconConfig? {
         if (leftIcon != null) { // Ignoring if rightIcon is also non null: Left icon has higher precedence than right
             return try {
@@ -181,10 +181,10 @@ internal class AndesMediumButtonSize : AndesButtonSizeInterface {
     override fun lateralPadding(context: Context) = context.resources.getDimension(R.dimen.andes_button_lateral_padding_medium).toInt()
     override fun cornerRadius(context: Context) = context.resources.getDimension(R.dimen.andes_button_border_radius_medium)
     override fun iconConfig(
-            hierarchy: AndesButtonHierarchyInterface,
-            leftIcon: String?,
-            rightIcon: String?,
-            context: Context
+        hierarchy: AndesButtonHierarchyInterface,
+        leftIcon: String?,
+        rightIcon: String?,
+        context: Context
     ): Nothing? = null
 }
 
@@ -201,9 +201,9 @@ internal class AndesSmallButtonSize : AndesButtonSizeInterface {
     override fun lateralPadding(context: Context) = context.resources.getDimension(R.dimen.andes_button_lateral_padding_small).toInt()
     override fun cornerRadius(context: Context) = context.resources.getDimension(R.dimen.andes_button_border_radius_small)
     override fun iconConfig(
-            hierarchy: AndesButtonHierarchyInterface,
-            leftIcon: String?,
-            rightIcon: String?,
-            context: Context
+        hierarchy: AndesButtonHierarchyInterface,
+        leftIcon: String?,
+        rightIcon: String?,
+        context: Context
     ): Nothing? = null
 }

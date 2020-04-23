@@ -11,14 +11,14 @@ import com.mercadolibre.android.andesui.textfield.state.AndesTextfieldState
  * The data class that contains the public components of the textfield.
  */
 internal data class AndesTextfieldAttrs(
-        val label: String?,
-        val helper: String?,
-        val placeholder: String?,
-        val counter: Int,
-        val state: AndesTextfieldState,
-        val leftContent: AndesTextfieldLeftContent?,
-        val rightContent: AndesTextfieldRightContent?,
-        val inputType: Int
+    val label: String?,
+    val helper: String?,
+    val placeholder: String?,
+    val counter: Int,
+    val state: AndesTextfieldState,
+    val leftContent: AndesTextfieldLeftContent?,
+    val rightContent: AndesTextfieldRightContent?,
+    val inputType: Int
 )
 
 /**

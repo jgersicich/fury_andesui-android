@@ -14,8 +14,8 @@ import com.mercadolibre.android.andesui.color.toAndesColor
  * @property disabledColor
  */
 internal data class TextColorConfig(
-        val enabledColor: AndesColor,
-        val disabledColor: AndesColor
+    val enabledColor: AndesColor,
+    val disabledColor: AndesColor
 )
 
 /**

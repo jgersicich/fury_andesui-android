@@ -8,13 +8,13 @@ import com.mercadolibre.android.andesui.badge.type.AndesBadgeTypeInterface
 import com.mercadolibre.android.andesui.color.AndesColor
 
 internal data class AndesBadgeConfiguration(
-        val backgroundColor: AndesColor,
-        val backgroundRadius: FloatArray,
-        val textColor: AndesColor,
-        val text: String? = null,
-        val textSize: Float,
-        val textMargin: Int,
-        val height: Float
+    val backgroundColor: AndesColor,
+    val backgroundRadius: FloatArray,
+    val textColor: AndesColor,
+    val text: String? = null,
+    val textSize: Float,
+    val textMargin: Int,
+    val height: Float
 )
 
 internal object AndesBadgeConfigurationFactory {
@@ -35,9 +35,9 @@ internal object AndesBadgeConfigurationFactory {
 
     private fun resolveBackgroundColor(hierarchy: AndesBadgeHierarchyInterface, type: AndesBadgeTypeInterface) = hierarchy.backgroundColor(type)
     private fun resolveBackgroundRadius(
-            size: AndesBadgeSizeInterface,
-            border: AndesBadgeBorderInterface,
-            context: Context
+        size: AndesBadgeSizeInterface,
+        border: AndesBadgeBorderInterface,
+        context: Context
     ) =
              floatArrayOf(border.upStartCornerRadius(size, context), border.upEndCornerRadius(size, context),
                      border.bottomEndCornerRadius(size, context), border.bottomStartCornerRadius(size, context))

@@ -138,15 +138,15 @@ class AndesTextfield : ConstraintLayout {
     }
 
     constructor(
-            context: Context,
-            label: String? = LABEL_DEFAULT,
-            helper: String? = HELPER_DEFAULT,
-            placeholder: String? = PLACEHOLDER_DEFAULT,
-            counter: Int = COUNTER_DEFAULT,
-            state: AndesTextfieldState = STATE_DEFAULT,
-            leftContent: AndesTextfieldLeftContent? = LEFT_COMPONENT_DEFAULT,
-            rightContent: AndesTextfieldRightContent? = RIGHT_COMPONENT_DEFAULT,
-            inputType: Int = INPUT_TYPE
+        context: Context,
+        label: String? = LABEL_DEFAULT,
+        helper: String? = HELPER_DEFAULT,
+        placeholder: String? = PLACEHOLDER_DEFAULT,
+        counter: Int = COUNTER_DEFAULT,
+        state: AndesTextfieldState = STATE_DEFAULT,
+        leftContent: AndesTextfieldLeftContent? = LEFT_COMPONENT_DEFAULT,
+        rightContent: AndesTextfieldRightContent? = RIGHT_COMPONENT_DEFAULT,
+        inputType: Int = INPUT_TYPE
     ) :
             super(context) {
         initAttrs(label, helper, placeholder, counter, state, leftContent, rightContent, inputType)
@@ -167,14 +167,14 @@ class AndesTextfield : ConstraintLayout {
     }
 
     private fun initAttrs(
-            label: String?,
-            helper: String?,
-            placeholder: String?,
-            counter: Int,
-            state: AndesTextfieldState,
-            leftContent: AndesTextfieldLeftContent?,
-            rightContent: AndesTextfieldRightContent?,
-            inputType: Int
+        label: String?,
+        helper: String?,
+        placeholder: String?,
+        counter: Int,
+        state: AndesTextfieldState,
+        leftContent: AndesTextfieldLeftContent?,
+        rightContent: AndesTextfieldRightContent?,
+        inputType: Int
     ) {
         andesTextfieldAttrs = AndesTextfieldAttrs(label, helper, placeholder, counter, state, leftContent, rightContent, inputType)
         val config = AndesTextfieldConfigurationFactory.create(context, andesTextfieldAttrs)

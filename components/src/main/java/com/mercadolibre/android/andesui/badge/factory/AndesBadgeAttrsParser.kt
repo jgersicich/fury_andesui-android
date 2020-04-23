@@ -13,12 +13,12 @@ import com.mercadolibre.android.andesui.badge.type.AndesBadgeType
  * The data class that contains the public components of the badge.
  */
 internal data class AndesBadgeAttrs(
-        val andesBadgeModifier: AndesBadgeModifier,
-        val andesBadgeHierarchy: AndesBadgeHierarchy,
-        val andesBadgeType: AndesBadgeType,
-        val andesBadgeBorder: AndesBadgeBorder,
-        val andesBadgeSize: AndesBadgeSize,
-        val andesBadgeText: String?
+    val andesBadgeModifier: AndesBadgeModifier,
+    val andesBadgeHierarchy: AndesBadgeHierarchy,
+    val andesBadgeType: AndesBadgeType,
+    val andesBadgeBorder: AndesBadgeBorder,
+    val andesBadgeSize: AndesBadgeSize,
+    val andesBadgeText: String?
 )
 
 /**

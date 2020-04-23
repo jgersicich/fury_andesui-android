@@ -7,8 +7,8 @@ import android.support.annotation.ColorRes
 import android.support.v4.graphics.ColorUtils
 
 data class AndesColor(
-        @ColorRes val colorRes: Int,
-        val alpha: Float = 1f
+    @ColorRes val colorRes: Int,
+    val alpha: Float = 1f
 ) {
     @ColorInt
     fun colorInt(context: Context): Int =

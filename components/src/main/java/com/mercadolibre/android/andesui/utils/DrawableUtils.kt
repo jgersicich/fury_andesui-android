@@ -26,11 +26,11 @@ import com.mercadolibre.android.andesui.color.AndesColor
  * @return a complete look overhauled [BitmapDrawable].
  */
 fun buildColoredBitmapDrawable(
-        image: BitmapDrawable,
-        context: Context,
-        dstWidth: Int? = null,
-        dstHeight: Int? = null,
-        colors: ColorStateList?
+    image: BitmapDrawable,
+    context: Context,
+    dstWidth: Int? = null,
+    dstHeight: Int? = null,
+    colors: ColorStateList?
 ): BitmapDrawable {
     var scaledBitmap: Bitmap = when {
         dstHeight != null && dstWidth != null -> Bitmap.createScaledBitmap(
@@ -69,11 +69,11 @@ fun buildColoredBitmapDrawable(image: BitmapDrawable, context: Context, dstWidth
 }
 
 fun buildColoredBitmapDrawable(
-        image: BitmapDrawable,
-        context: Context,
-        dstWidth: Int? = null,
-        dstHeight: Int? = null,
-        color: AndesColor? = null
+    image: BitmapDrawable,
+    context: Context,
+    dstWidth: Int? = null,
+    dstHeight: Int? = null,
+    color: AndesColor? = null
 ): BitmapDrawable {
     var scaledBitmap: Bitmap = when {
         dstHeight != null && dstWidth != null -> Bitmap.createScaledBitmap(
@@ -93,11 +93,11 @@ fun buildColoredBitmapDrawable(
  * This method is the same as badge icon. When component were made, this should have been removed.
  */
 fun buildColoredCircularShapeWithIconDrawable(
-        image: BitmapDrawable,
-        context: Context,
-        iconColor: AndesColor? = null,
-        shapeColor: Int? = null,
-        diameter: Int
+    image: BitmapDrawable,
+    context: Context,
+    iconColor: AndesColor? = null,
+    shapeColor: Int? = null,
+    diameter: Int
 ): Drawable {
     val icon = buildColoredBitmapDrawable(image, context, null, null, iconColor)
 
